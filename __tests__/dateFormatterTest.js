@@ -22,7 +22,7 @@ it("when system date and date to format are not the same day, format system date
 
 it("when system date is a month with 1 digit, return month nymber with 0 in front", () => {
   const March = 2; //js Date object month is indexed from 0
-  const systemDateTime = new Date(2018, March, 11, 11, 30).getTime();
-  const dateTimeToFormat = new Date(2017, March, 12, 19, 59).getTime();
+  const systemDateTime = new Date(2017, March, 12, 19, 59).getTime();
+  const dateTimeToFormat = new Date(2018, March, 11, 11, 30).getTime();
   expect(format(dateTimeToFormat, systemDateTime)).toBe("11/03/2018");
 });

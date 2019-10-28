@@ -5,6 +5,7 @@ const convertDateToCorrectFormat = date => {
   let day = "" + d.getDate();
   let month = "" + (d.getMonth() + 1);
   let year = d.getFullYear();
+  if (month.length <= 1) month = "0" + month;
   return [day, month, year].join("/");
 };
 

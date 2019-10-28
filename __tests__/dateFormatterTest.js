@@ -20,9 +20,16 @@ it("when system date and date to format are not the same day, format system date
   expect(format(dateTimeToFormat, systemDateTime)).toBe("10/11/2017");
 });
 
-it("when system date is a month with 1 digit, return month nymber with 0 in front", () => {
+it("when system date is a month with 1 digit, return month number with 0 in front", () => {
   const March = 2; //js Date object month is indexed from 0
   const systemDateTime = new Date(2017, March, 12, 19, 59).getTime();
   const dateTimeToFormat = new Date(2018, March, 11, 11, 30).getTime();
   expect(format(dateTimeToFormat, systemDateTime)).toBe("11/03/2018");
+});
+
+it("when system date is a day with 1 digit, return day number with 0 in front", () => {
+  const December = 11; //js Date object month is indexed from 0
+  const systemDateTime = new Date(2017, December, 5, 19, 59).getTime();
+  const dateTimeToFormat = new Date(2018, December, 7, 11, 30).getTime();
+  expect(format(dateTimeToFormat, systemDateTime)).toBe("07/12/2018");
 });

@@ -1,3 +1,5 @@
+const convertDate = () => {};
+
 const format = (dateToFormatTimeMillis, systemDateTimeMillis) => {
   // turn inputs into date/time objects and then convert the date part of
   // the object into a string

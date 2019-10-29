@@ -44,5 +44,5 @@ it("when system date and date to format are the same day, and month and day are 
 it("convertDateToCorrectFormat provides date in format DD/MM/YYYY", () => {
   const February = 1;
   const d = new Date(2018, February, 5, 7, 51);
-  expect(convertDateToCorrectFormat(date)).toBe("05/02/2018");
+  expect(convertDateToCorrectFormat(d)).toBe("05/02/2018");
 });

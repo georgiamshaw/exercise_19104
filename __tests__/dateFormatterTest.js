@@ -1,4 +1,4 @@
-import { format } from "../src/dateFormatter";
+import { format, convertDateToCorrectFormat } from "../src/dateFormatter";
 
 // ensure the test file is working
 it("1 equals 1", () => {
@@ -32,4 +32,17 @@ it("when system date is a day with 1 digit, return day number with 0 in front", 
   const systemDateTime = new Date(2017, December, 5, 19, 59).getTime();
   const dateTimeToFormat = new Date(2018, December, 7, 11, 30).getTime();
   expect(format(dateTimeToFormat, systemDateTime)).toBe("07/12/2018");
+});
+
+it("when system date and date to format are the same day, and month and day are 1 digit, format as 'TODAY'", () => {
+  const February = 1; //js Date object month is indexed from 0
+  const systemDateTime = new Date(2018, February, 5, 7, 51).getTime();
+  const dateTimeToFormat = new Date(2018, February, 5, 12, 40).getTime();
+  expect(format(dateTimeToFormat, systemDateTime)).toBe("TODAY");
+});
+
+it("convertDateToCorrectFormat provides date in format DD/MM/YYYY", () => {
+  const February = 1;
+  const d = new Date(2018, February, 5, 7, 51);
+  expect(convertDateToCorrectFormat(date)).toBe("05/02/2018");
 });
